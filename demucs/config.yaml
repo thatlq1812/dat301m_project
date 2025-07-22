@@ -1,0 +1,7 @@
+sample_rate: 44100
+segment: 10
+batch_size: 4
+epochs: 50
+learning_rate: 0.0003
+save_path: ./checkpoints/
+target_instruments: ["vocals", "drums", "bass", "other"]

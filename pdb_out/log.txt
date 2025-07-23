@@ -1,0 +1,373 @@
+2025-07-23 10:59:27,663 Running colabfold 1.5.5 (3456682e69f4dc4b0880e988285a9d3d52585af9)
+2025-07-23 11:02:12,107 WARNING: no GPU detected, will be using CPU
+2025-07-23 11:02:14,361 Found 2 citations for tools or databases
+2025-07-23 11:02:14,362 Query 1/10: 2YGV_2_E (length 22)
+2025-07-23 11:02:19,266 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc565c7c860> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 11:02:19,821 Padding length to 32
+2025-07-23 11:02:28,180 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=68.9 pTM=0.0949
+2025-07-23 11:02:32,687 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=69.3 pTM=0.0993 tol=1.29
+2025-07-23 11:02:34,504 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=70 pTM=0.104 tol=0.752
+2025-07-23 11:02:36,328 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=70.2 pTM=0.104 tol=0.335
+2025-07-23 11:02:36,329 alphafold2_ptm_model_1_seed_000 took 16.5s (3 recycles)
+2025-07-23 11:02:38,162 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=67.9 pTM=0.0767
+2025-07-23 11:02:39,926 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=69.3 pTM=0.0865 tol=1.3
+2025-07-23 11:02:41,694 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=70.2 pTM=0.092 tol=1.16
+2025-07-23 11:02:43,478 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=71.2 pTM=0.0948 tol=0.764
+2025-07-23 11:02:43,479 alphafold2_ptm_model_2_seed_000 took 7.1s (3 recycles)
+2025-07-23 11:02:45,248 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=73.2 pTM=0.0936
+2025-07-23 11:02:47,126 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=74.1 pTM=0.0937 tol=0.884
+2025-07-23 11:02:48,937 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=74.2 pTM=0.0952 tol=0.504
+2025-07-23 11:02:50,714 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=74.2 pTM=0.0958 tol=0.328
+2025-07-23 11:02:50,715 alphafold2_ptm_model_3_seed_000 took 7.2s (3 recycles)
+2025-07-23 11:02:52,489 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=75.7 pTM=0.0947
+2025-07-23 11:02:54,257 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=73 pTM=0.0964 tol=2.78
+2025-07-23 11:02:56,066 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=72.8 pTM=0.0962 tol=1.29
+2025-07-23 11:02:57,826 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=72.6 pTM=0.0963 tol=0.478
+2025-07-23 11:02:57,827 alphafold2_ptm_model_4_seed_000 took 7.1s (3 recycles)
+2025-07-23 11:02:59,598 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=72.1 pTM=0.0975
+2025-07-23 11:03:01,389 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=73.2 pTM=0.0956 tol=1.59
+2025-07-23 11:03:05,985 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=74 pTM=0.0986 tol=0.99
+2025-07-23 11:03:07,830 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=77.2 pTM=0.0998 tol=1.31
+2025-07-23 11:03:07,831 alphafold2_ptm_model_5_seed_000 took 10.0s (3 recycles)
+2025-07-23 11:03:07,838 reranking models by 'plddt' metric
+2025-07-23 11:03:07,839 rank_001_alphafold2_ptm_model_5_seed_000 pLDDT=77.2 pTM=0.0998
+2025-07-23 11:03:07,844 rank_002_alphafold2_ptm_model_3_seed_000 pLDDT=74.2 pTM=0.0958
+2025-07-23 11:03:07,848 rank_003_alphafold2_ptm_model_4_seed_000 pLDDT=72.6 pTM=0.0963
+2025-07-23 11:03:07,853 rank_004_alphafold2_ptm_model_2_seed_000 pLDDT=71.2 pTM=0.0948
+2025-07-23 11:03:07,858 rank_005_alphafold2_ptm_model_1_seed_000 pLDDT=70.2 pTM=0.104
+2025-07-23 11:03:09,018 Query 2/10: 2RT4_1_A (length 25)
+2025-07-23 11:03:09,785 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc5082edd00> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 11:03:10,376 Padding length to 32
+2025-07-23 11:03:12,223 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=77.6 pTM=0.216
+2025-07-23 11:03:14,016 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=85.8 pTM=0.273 tol=1.09
+2025-07-23 11:03:15,786 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=87.7 pTM=0.294 tol=0.143
+2025-07-23 11:03:17,590 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=88 pTM=0.296 tol=0.0664
+2025-07-23 11:03:17,591 alphafold2_ptm_model_1_seed_000 took 7.2s (3 recycles)
+2025-07-23 11:03:19,426 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=71.4 pTM=0.226
+2025-07-23 11:03:21,210 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=86.6 pTM=0.277 tol=0.624
+2025-07-23 11:03:23,006 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=88.7 pTM=0.299 tol=0.126
+2025-07-23 11:03:24,800 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=88.6 pTM=0.299 tol=0.116
+2025-07-23 11:03:24,800 alphafold2_ptm_model_2_seed_000 took 7.2s (3 recycles)
+2025-07-23 11:03:26,593 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=78.9 pTM=0.239
+2025-07-23 11:03:28,358 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=86.8 pTM=0.276 tol=0.532
+2025-07-23 11:03:30,146 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=88.4 pTM=0.282 tol=0.0674
+2025-07-23 11:03:31,967 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=88.8 pTM=0.283 tol=0.0563
+2025-07-23 11:03:31,967 alphafold2_ptm_model_3_seed_000 took 7.2s (3 recycles)
+2025-07-23 11:03:33,821 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=72.5 pTM=0.201
+2025-07-23 11:03:38,388 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=69.3 pTM=0.202 tol=1.03
+2025-07-23 11:03:40,197 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=80.1 pTM=0.229 tol=0.601
+2025-07-23 11:03:41,963 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=86.6 pTM=0.267 tol=0.473
+2025-07-23 11:03:41,964 alphafold2_ptm_model_4_seed_000 took 10.0s (3 recycles)
+2025-07-23 11:03:43,787 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=85.8 pTM=0.258
+2025-07-23 11:03:45,593 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=81.8 pTM=0.236 tol=0.197
+2025-07-23 11:03:47,389 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=79.2 pTM=0.222 tol=0.147
+2025-07-23 11:03:49,160 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=76.8 pTM=0.212 tol=0.123
+2025-07-23 11:03:49,161 alphafold2_ptm_model_5_seed_000 took 7.2s (3 recycles)
+2025-07-23 11:03:49,169 reranking models by 'plddt' metric
+2025-07-23 11:03:49,169 rank_001_alphafold2_ptm_model_3_seed_000 pLDDT=88.8 pTM=0.283
+2025-07-23 11:03:49,175 rank_002_alphafold2_ptm_model_2_seed_000 pLDDT=88.6 pTM=0.299
+2025-07-23 11:03:49,179 rank_003_alphafold2_ptm_model_1_seed_000 pLDDT=88 pTM=0.296
+2025-07-23 11:03:49,183 rank_004_alphafold2_ptm_model_4_seed_000 pLDDT=86.6 pTM=0.267
+2025-07-23 11:03:49,188 rank_005_alphafold2_ptm_model_5_seed_000 pLDDT=76.8 pTM=0.212
+2025-07-23 11:03:50,095 Query 3/10: 2LQX_1_A (length 41)
+2025-07-23 11:03:50,796 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc50444fd80> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 11:03:51,340 Padding length to 51
+2025-07-23 11:04:01,836 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=88.6 pTM=0.585
+2025-07-23 11:04:05,036 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=88.8 pTM=0.6 tol=0.159
+2025-07-23 11:04:10,902 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=88.4 pTM=0.597 tol=0.0946
+2025-07-23 11:04:14,120 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=88.4 pTM=0.596 tol=0.0279
+2025-07-23 11:04:14,121 alphafold2_ptm_model_1_seed_000 took 22.8s (3 recycles)
+2025-07-23 11:04:17,268 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=87.9 pTM=0.61
+2025-07-23 11:04:20,400 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=88.6 pTM=0.634 tol=0.175
+2025-07-23 11:04:23,521 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=88.1 pTM=0.633 tol=0.0473
+2025-07-23 11:04:26,623 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=88.2 pTM=0.636 tol=0.0743
+2025-07-23 11:04:26,624 alphafold2_ptm_model_2_seed_000 took 12.5s (3 recycles)
+2025-07-23 11:04:29,741 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=91.2 pTM=0.624
+2025-07-23 11:04:32,938 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=92.2 pTM=0.646 tol=0.2
+2025-07-23 11:04:36,165 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=92.2 pTM=0.646 tol=0.0596
+2025-07-23 11:04:39,274 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=92 pTM=0.648 tol=0.049
+2025-07-23 11:04:39,275 alphafold2_ptm_model_3_seed_000 took 12.6s (3 recycles)
+2025-07-23 11:04:45,078 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=90.8 pTM=0.613
+2025-07-23 11:04:48,211 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=91.6 pTM=0.636 tol=0.113
+2025-07-23 11:04:51,362 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=91.7 pTM=0.638 tol=0.0659
+2025-07-23 11:04:54,587 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=91.6 pTM=0.638 tol=0.0265
+2025-07-23 11:04:54,588 alphafold2_ptm_model_4_seed_000 took 15.3s (3 recycles)
+2025-07-23 11:04:57,799 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=91.2 pTM=0.647
+2025-07-23 11:05:00,945 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=92 pTM=0.656 tol=0.138
+2025-07-23 11:05:04,168 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=91.9 pTM=0.656 tol=0.0508
+2025-07-23 11:05:07,367 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=92.1 pTM=0.658 tol=0.0284
+2025-07-23 11:05:07,368 alphafold2_ptm_model_5_seed_000 took 12.8s (3 recycles)
+2025-07-23 11:05:07,378 reranking models by 'plddt' metric
+2025-07-23 11:05:07,378 rank_001_alphafold2_ptm_model_5_seed_000 pLDDT=92.1 pTM=0.658
+2025-07-23 11:05:07,383 rank_002_alphafold2_ptm_model_3_seed_000 pLDDT=92 pTM=0.648
+2025-07-23 11:05:07,399 rank_003_alphafold2_ptm_model_4_seed_000 pLDDT=91.6 pTM=0.638
+2025-07-23 11:05:07,403 rank_004_alphafold2_ptm_model_1_seed_000 pLDDT=88.4 pTM=0.596
+2025-07-23 11:05:07,407 rank_005_alphafold2_ptm_model_2_seed_000 pLDDT=88.2 pTM=0.636
+2025-07-23 11:05:08,296 Query 4/10: 3H7H_2_B (length 106)
+2025-07-23 11:05:09,007 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc504276a20> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 11:05:09,573 Padding length to 116
+2025-07-23 11:05:37,830 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=35 pTM=0.251
+2025-07-23 11:05:58,945 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=35.8 pTM=0.265 tol=5.79
+2025-07-23 11:06:17,574 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=41.6 pTM=0.318 tol=3.09
+2025-07-23 11:06:39,964 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=44.7 pTM=0.354 tol=0.865
+2025-07-23 11:06:39,965 alphafold2_ptm_model_1_seed_000 took 90.4s (3 recycles)
+2025-07-23 11:07:02,408 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=40.6 pTM=0.277
+2025-07-23 11:07:22,170 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=37.1 pTM=0.244 tol=1.94
+2025-07-23 11:07:44,240 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=41.8 pTM=0.311 tol=8.92
+2025-07-23 11:08:06,250 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=44.8 pTM=0.335 tol=4.11
+2025-07-23 11:08:06,251 alphafold2_ptm_model_2_seed_000 took 86.2s (3 recycles)
+2025-07-23 11:08:26,380 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=43.1 pTM=0.301
+2025-07-23 11:08:49,036 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=49.2 pTM=0.375 tol=1.48
+2025-07-23 11:09:11,473 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=53.7 pTM=0.429 tol=2.45
+2025-07-23 11:09:30,460 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=55.9 pTM=0.448 tol=2.95
+2025-07-23 11:09:30,461 alphafold2_ptm_model_3_seed_000 took 84.2s (3 recycles)
+2025-07-23 11:09:52,202 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=37.5 pTM=0.244
+2025-07-23 11:10:13,076 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=35.3 pTM=0.248 tol=1.88
+2025-07-23 11:10:31,128 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=34.3 pTM=0.249 tol=1.69
+2025-07-23 11:10:52,119 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=34.5 pTM=0.251 tol=1.22
+2025-07-23 11:10:52,120 alphafold2_ptm_model_4_seed_000 took 81.6s (3 recycles)
+2025-07-23 11:11:10,164 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=38.2 pTM=0.264
+2025-07-23 11:11:30,866 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=42 pTM=0.322 tol=2.69
+2025-07-23 11:11:52,055 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=44.3 pTM=0.347 tol=2.16
+2025-07-23 11:12:12,077 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=46.4 pTM=0.366 tol=1.39
+2025-07-23 11:12:12,079 alphafold2_ptm_model_5_seed_000 took 79.9s (3 recycles)
+2025-07-23 11:12:12,111 reranking models by 'plddt' metric
+2025-07-23 11:12:12,112 rank_001_alphafold2_ptm_model_3_seed_000 pLDDT=55.9 pTM=0.448
+2025-07-23 11:12:12,117 rank_002_alphafold2_ptm_model_5_seed_000 pLDDT=46.4 pTM=0.366
+2025-07-23 11:12:12,121 rank_003_alphafold2_ptm_model_2_seed_000 pLDDT=44.8 pTM=0.335
+2025-07-23 11:12:12,125 rank_004_alphafold2_ptm_model_1_seed_000 pLDDT=44.7 pTM=0.354
+2025-07-23 11:12:12,130 rank_005_alphafold2_ptm_model_4_seed_000 pLDDT=34.5 pTM=0.251
+2025-07-23 11:12:13,450 Query 5/10: 5E3E_2_B (length 114)
+2025-07-23 11:12:14,219 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc4b535ae80> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 11:12:14,823 Padding length to 116
+2025-07-23 11:12:36,710 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=33 pTM=0.244
+2025-07-23 11:12:58,513 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=37.2 pTM=0.335 tol=3.75
+2025-07-23 11:13:17,833 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=39.6 pTM=0.343 tol=2.84
+2025-07-23 11:13:39,480 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=46.2 pTM=0.417 tol=1.15
+2025-07-23 11:13:39,481 alphafold2_ptm_model_1_seed_000 took 84.7s (3 recycles)
+2025-07-23 11:14:01,317 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=34.4 pTM=0.255
+2025-07-23 11:14:20,148 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=36.1 pTM=0.284 tol=5.56
+2025-07-23 11:14:41,669 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=36.1 pTM=0.299 tol=6.48
+2025-07-23 11:15:00,101 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=38.7 pTM=0.318 tol=5.14
+2025-07-23 11:15:00,102 alphafold2_ptm_model_2_seed_000 took 80.6s (3 recycles)
+2025-07-23 11:15:21,582 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=40.7 pTM=0.347
+2025-07-23 11:15:42,496 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=41.6 pTM=0.365 tol=4.92
+2025-07-23 11:16:00,903 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=43 pTM=0.376 tol=3.54
+2025-07-23 11:16:22,932 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=43.6 pTM=0.383 tol=1.5
+2025-07-23 11:16:22,933 alphafold2_ptm_model_3_seed_000 took 82.8s (3 recycles)
+2025-07-23 11:16:44,504 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=43.2 pTM=0.393
+2025-07-23 11:17:02,719 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=46.1 pTM=0.427 tol=6.38
+2025-07-23 11:17:23,630 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=48.6 pTM=0.455 tol=1.26
+2025-07-23 11:17:41,875 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=50.5 pTM=0.47 tol=1.11
+2025-07-23 11:17:41,876 alphafold2_ptm_model_4_seed_000 took 78.9s (3 recycles)
+2025-07-23 11:18:02,840 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=33.1 pTM=0.164
+2025-07-23 11:18:23,669 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=34.5 pTM=0.201 tol=11.4
+2025-07-23 11:18:42,096 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=37.5 pTM=0.251 tol=2.62
+2025-07-23 11:19:02,814 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=40.8 pTM=0.296 tol=2.36
+2025-07-23 11:19:02,815 alphafold2_ptm_model_5_seed_000 took 80.9s (3 recycles)
+2025-07-23 11:19:02,840 reranking models by 'plddt' metric
+2025-07-23 11:19:02,840 rank_001_alphafold2_ptm_model_4_seed_000 pLDDT=50.5 pTM=0.47
+2025-07-23 11:19:02,844 rank_002_alphafold2_ptm_model_1_seed_000 pLDDT=46.2 pTM=0.417
+2025-07-23 11:19:02,849 rank_003_alphafold2_ptm_model_3_seed_000 pLDDT=43.6 pTM=0.383
+2025-07-23 11:19:02,853 rank_004_alphafold2_ptm_model_5_seed_000 pLDDT=40.8 pTM=0.296
+2025-07-23 11:19:02,858 rank_005_alphafold2_ptm_model_2_seed_000 pLDDT=38.7 pTM=0.318
+2025-07-23 11:19:04,422 Query 6/10: 4AFI_1_A (length 173)
+2025-07-23 11:19:05,159 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc4b543a660> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 11:19:05,887 Padding length to 183
+2025-07-23 11:20:08,379 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=33.2 pTM=0.259
+2025-07-23 11:21:00,484 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=32.2 pTM=0.275 tol=1.74
+2025-07-23 11:21:57,063 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=32.3 pTM=0.267 tol=0.94
+2025-07-23 11:22:52,348 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=32 pTM=0.265 tol=1.27
+2025-07-23 11:22:52,349 alphafold2_ptm_model_1_seed_000 took 226.5s (3 recycles)
+2025-07-23 11:23:44,685 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=35.9 pTM=0.275
+2025-07-23 11:24:40,264 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=34.1 pTM=0.264 tol=6.61
+2025-07-23 11:25:34,908 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=35.5 pTM=0.266 tol=7.48
+2025-07-23 11:26:26,855 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=35.9 pTM=0.279 tol=4.02
+2025-07-23 11:26:26,856 alphafold2_ptm_model_2_seed_000 took 214.4s (3 recycles)
+2025-07-23 11:27:21,844 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=35 pTM=0.246
+2025-07-23 11:28:16,873 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=35.1 pTM=0.262 tol=7.95
+2025-07-23 11:29:09,210 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=35 pTM=0.254 tol=1.75
+2025-07-23 11:30:04,843 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=34.1 pTM=0.256 tol=1.68
+2025-07-23 11:30:04,844 alphafold2_ptm_model_3_seed_000 took 217.9s (3 recycles)
+2025-07-23 11:31:00,143 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=35.4 pTM=0.271
+2025-07-23 11:31:52,101 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=33.1 pTM=0.256 tol=2.84
+2025-07-23 11:32:46,590 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=30.9 pTM=0.255 tol=7.26
+2025-07-23 11:33:41,297 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=31.7 pTM=0.26 tol=6.17
+2025-07-23 11:33:41,298 alphafold2_ptm_model_4_seed_000 took 216.4s (3 recycles)
+2025-07-23 11:34:34,671 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=32.9 pTM=0.243
+2025-07-23 11:35:29,184 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=29.8 pTM=0.24 tol=7.92
+2025-07-23 11:36:23,653 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=30.1 pTM=0.227 tol=8.92
+2025-07-23 11:37:15,167 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=31.6 pTM=0.247 tol=3.51
+2025-07-23 11:37:15,168 alphafold2_ptm_model_5_seed_000 took 213.8s (3 recycles)
+2025-07-23 11:37:15,214 reranking models by 'plddt' metric
+2025-07-23 11:37:15,215 rank_001_alphafold2_ptm_model_2_seed_000 pLDDT=35.9 pTM=0.279
+2025-07-23 11:37:15,219 rank_002_alphafold2_ptm_model_3_seed_000 pLDDT=34.1 pTM=0.256
+2025-07-23 11:37:15,224 rank_003_alphafold2_ptm_model_1_seed_000 pLDDT=32 pTM=0.265
+2025-07-23 11:37:15,230 rank_004_alphafold2_ptm_model_4_seed_000 pLDDT=31.7 pTM=0.26
+2025-07-23 11:37:15,235 rank_005_alphafold2_ptm_model_5_seed_000 pLDDT=31.6 pTM=0.247
+2025-07-23 11:37:16,802 Query 7/10: 3NQO_1_A (length 189)
+2025-07-23 11:37:17,556 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc4b534ee80> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 11:37:18,141 Padding length to 199
+2025-07-23 11:38:35,206 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=35.8 pTM=0.26
+2025-07-23 11:39:41,625 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=38.3 pTM=0.321 tol=7.3
+2025-07-23 11:40:48,633 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=47.8 pTM=0.429 tol=2.89
+2025-07-23 11:41:55,412 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=48.9 pTM=0.442 tol=1.45
+2025-07-23 11:41:55,413 alphafold2_ptm_model_1_seed_000 took 277.3s (3 recycles)
+2025-07-23 11:43:02,073 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=38.1 pTM=0.228
+2025-07-23 11:44:08,654 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=35.7 pTM=0.232 tol=11.1
+2025-07-23 11:45:15,535 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=36.8 pTM=0.238 tol=3.55
+2025-07-23 11:46:21,813 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=37.3 pTM=0.234 tol=0.971
+2025-07-23 11:46:21,814 alphafold2_ptm_model_2_seed_000 took 266.3s (3 recycles)
+2025-07-23 11:47:28,538 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=35.7 pTM=0.236
+2025-07-23 11:48:34,957 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=36.7 pTM=0.265 tol=4.54
+2025-07-23 11:49:41,347 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=38.5 pTM=0.29 tol=6.73
+2025-07-23 11:50:48,033 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=37.8 pTM=0.282 tol=7.71
+2025-07-23 11:50:48,034 alphafold2_ptm_model_3_seed_000 took 266.2s (3 recycles)
+2025-07-23 11:51:54,298 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=36.3 pTM=0.206
+2025-07-23 11:53:00,763 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=33.7 pTM=0.22 tol=6.8
+2025-07-23 11:54:07,255 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=34.1 pTM=0.221 tol=4.88
+2025-07-23 11:55:13,596 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=35.3 pTM=0.267 tol=8.61
+2025-07-23 11:55:13,597 alphafold2_ptm_model_4_seed_000 took 265.5s (3 recycles)
+2025-07-23 11:56:19,701 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=35.6 pTM=0.214
+2025-07-23 11:57:26,027 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=34.7 pTM=0.227 tol=7.75
+2025-07-23 11:58:32,455 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=33.3 pTM=0.222 tol=6.47
+2025-07-23 11:59:39,042 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=33.9 pTM=0.231 tol=2.39
+2025-07-23 11:59:39,043 alphafold2_ptm_model_5_seed_000 took 265.4s (3 recycles)
+2025-07-23 11:59:39,095 reranking models by 'plddt' metric
+2025-07-23 11:59:39,096 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=48.9 pTM=0.442
+2025-07-23 11:59:39,103 rank_002_alphafold2_ptm_model_3_seed_000 pLDDT=37.8 pTM=0.282
+2025-07-23 11:59:39,108 rank_003_alphafold2_ptm_model_2_seed_000 pLDDT=37.3 pTM=0.234
+2025-07-23 11:59:39,113 rank_004_alphafold2_ptm_model_4_seed_000 pLDDT=35.3 pTM=0.267
+2025-07-23 11:59:39,118 rank_005_alphafold2_ptm_model_5_seed_000 pLDDT=33.9 pTM=0.231
+2025-07-23 11:59:40,678 Query 8/10: 4AEZ_3_C (length 223)
+2025-07-23 11:59:41,454 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc4b01d7880> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 11:59:42,007 Padding length to 233
+2025-07-23 12:01:21,236 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=40.5 pTM=0.279
+2025-07-23 12:02:53,332 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=37.6 pTM=0.281 tol=5.6
+2025-07-23 12:04:25,296 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=39.7 pTM=0.309 tol=5.38
+2025-07-23 12:05:57,394 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=40.2 pTM=0.319 tol=3.17
+2025-07-23 12:05:57,395 alphafold2_ptm_model_1_seed_000 took 375.4s (3 recycles)
+2025-07-23 12:07:29,465 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=45.9 pTM=0.302
+2025-07-23 12:08:59,283 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=49 pTM=0.347 tol=4.64
+2025-07-23 12:10:31,912 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=51.7 pTM=0.367 tol=1.63
+2025-07-23 12:12:04,974 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=52.6 pTM=0.379 tol=0.781
+2025-07-23 12:12:04,975 alphafold2_ptm_model_2_seed_000 took 367.5s (3 recycles)
+2025-07-23 12:13:37,747 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=36.9 pTM=0.234
+2025-07-23 12:15:10,226 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=38.9 pTM=0.236 tol=5.47
+2025-07-23 12:16:40,069 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=38.2 pTM=0.233 tol=6.82
+2025-07-23 12:18:12,227 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=38.7 pTM=0.236 tol=3.96
+2025-07-23 12:18:12,228 alphafold2_ptm_model_3_seed_000 took 367.2s (3 recycles)
+2025-07-23 12:19:44,544 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=46.1 pTM=0.305
+2025-07-23 12:21:16,966 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=46.9 pTM=0.321 tol=2.33
+2025-07-23 12:22:49,256 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=47.2 pTM=0.346 tol=2.55
+2025-07-23 12:24:18,984 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=49.9 pTM=0.375 tol=1.77
+2025-07-23 12:24:18,985 alphafold2_ptm_model_4_seed_000 took 366.7s (3 recycles)
+2025-07-23 12:25:51,625 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=41.2 pTM=0.252
+2025-07-23 12:27:24,122 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=44.1 pTM=0.257 tol=7.01
+2025-07-23 12:28:56,570 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=42.3 pTM=0.252 tol=3.09
+2025-07-23 12:30:29,096 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=44.1 pTM=0.266 tol=1.54
+2025-07-23 12:30:29,097 alphafold2_ptm_model_5_seed_000 took 370.0s (3 recycles)
+2025-07-23 12:30:29,167 reranking models by 'plddt' metric
+2025-07-23 12:30:29,168 rank_001_alphafold2_ptm_model_2_seed_000 pLDDT=52.6 pTM=0.379
+2025-07-23 12:30:29,177 rank_002_alphafold2_ptm_model_4_seed_000 pLDDT=49.9 pTM=0.375
+2025-07-23 12:30:29,192 rank_003_alphafold2_ptm_model_5_seed_000 pLDDT=44.1 pTM=0.266
+2025-07-23 12:30:29,196 rank_004_alphafold2_ptm_model_1_seed_000 pLDDT=40.2 pTM=0.319
+2025-07-23 12:30:29,201 rank_005_alphafold2_ptm_model_3_seed_000 pLDDT=38.7 pTM=0.236
+2025-07-23 12:30:30,471 Query 9/10: 1EWF_1_A (length 456)
+2025-07-23 12:30:31,377 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc4a231a200> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 12:30:31,971 Padding length to 466
+2025-07-23 12:38:35,542 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=30.6 pTM=0.218
+2025-07-23 12:46:27,889 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=28.9 pTM=0.246 tol=9.56
+2025-07-23 12:54:27,062 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=29.6 pTM=0.256 tol=3.91
+2025-07-23 13:02:23,898 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=29.9 pTM=0.253 tol=1.92
+2025-07-23 13:02:23,900 alphafold2_ptm_model_1_seed_000 took 1911.9s (3 recycles)
+2025-07-23 13:10:29,254 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=32.7 pTM=0.197
+2025-07-23 13:18:24,713 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=32.6 pTM=0.224 tol=12.5
+2025-07-23 13:25:40,840 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=31.8 pTM=0.23 tol=6.64
+2025-07-23 13:32:56,962 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=31.5 pTM=0.233 tol=3.12
+2025-07-23 13:32:56,964 alphafold2_ptm_model_2_seed_000 took 1832.8s (3 recycles)
+2025-07-23 13:40:15,421 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=25.6 pTM=0.165
+2025-07-23 13:47:32,090 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=26.6 pTM=0.163 tol=8.21
+2025-07-23 13:54:49,804 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=27.2 pTM=0.162 tol=5.05
+2025-07-23 14:02:09,762 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=27.1 pTM=0.166 tol=3
+2025-07-23 14:02:09,763 alphafold2_ptm_model_3_seed_000 took 1752.6s (3 recycles)
+2025-07-23 14:09:24,680 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=28 pTM=0.188
+2025-07-23 14:16:49,143 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=27 pTM=0.191 tol=8.24
+2025-07-23 14:24:39,847 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=26.4 pTM=0.185 tol=5.57
+2025-07-23 14:32:36,899 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=26.5 pTM=0.18 tol=2.71
+2025-07-23 14:32:36,901 alphafold2_ptm_model_4_seed_000 took 1826.9s (3 recycles)
+2025-07-23 14:40:36,403 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=26.8 pTM=0.151
+2025-07-23 14:48:36,639 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=26 pTM=0.163 tol=15.9
+2025-07-23 14:56:37,062 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=25.8 pTM=0.161 tol=9.12
+2025-07-23 15:04:34,060 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=26 pTM=0.162 tol=3.31
+2025-07-23 15:04:34,064 alphafold2_ptm_model_5_seed_000 took 1916.8s (3 recycles)
+2025-07-23 15:04:34,380 reranking models by 'plddt' metric
+2025-07-23 15:04:34,381 rank_001_alphafold2_ptm_model_2_seed_000 pLDDT=31.5 pTM=0.233
+2025-07-23 15:04:34,387 rank_002_alphafold2_ptm_model_1_seed_000 pLDDT=29.9 pTM=0.253
+2025-07-23 15:04:34,393 rank_003_alphafold2_ptm_model_3_seed_000 pLDDT=27.1 pTM=0.166
+2025-07-23 15:04:34,398 rank_004_alphafold2_ptm_model_4_seed_000 pLDDT=26.5 pTM=0.18
+2025-07-23 15:04:34,404 rank_005_alphafold2_ptm_model_5_seed_000 pLDDT=26 pTM=0.162
+2025-07-23 15:04:36,522 Query 10/10: 5ERB_1_A (length 640)
+2025-07-23 15:04:38,427 AutoGraph could not transform <function process_tensors_from_config.<locals>.wrap_ensemble_fn at 0x7cc4a236e520> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: `haiku.experimental.flax` features require `flax` to be installed.
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2025-07-23 15:24:02,415 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=30.4 pTM=0.196
+2025-07-23 15:42:51,776 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=28.1 pTM=0.19 tol=13.8
+2025-07-23 16:01:43,044 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=28 pTM=0.192 tol=6.27
+2025-07-23 16:20:37,540 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=28.2 pTM=0.191 tol=5.68
+2025-07-23 16:20:37,545 alphafold2_ptm_model_1_seed_000 took 4558.2s (3 recycles)
+2025-07-23 16:39:31,779 alphafold2_ptm_model_2_seed_000 recycle=0 pLDDT=33.8 pTM=0.181
+2025-07-23 16:57:40,639 alphafold2_ptm_model_2_seed_000 recycle=1 pLDDT=33.7 pTM=0.221 tol=17.4
+2025-07-23 17:15:30,921 alphafold2_ptm_model_2_seed_000 recycle=2 pLDDT=34.7 pTM=0.265 tol=6.79
+2025-07-23 17:33:24,145 alphafold2_ptm_model_2_seed_000 recycle=3 pLDDT=35.6 pTM=0.287 tol=4.29
+2025-07-23 17:33:24,147 alphafold2_ptm_model_2_seed_000 took 4366.1s (3 recycles)
+2025-07-23 17:51:19,033 alphafold2_ptm_model_3_seed_000 recycle=0 pLDDT=25.6 pTM=0.169
+2025-07-23 18:09:13,959 alphafold2_ptm_model_3_seed_000 recycle=1 pLDDT=25.3 pTM=0.163 tol=10.6
+2025-07-23 18:27:21,130 alphafold2_ptm_model_3_seed_000 recycle=2 pLDDT=25.2 pTM=0.163 tol=4.06
+2025-07-23 18:45:24,495 alphafold2_ptm_model_3_seed_000 recycle=3 pLDDT=26.1 pTM=0.169 tol=3.79
+2025-07-23 18:45:24,499 alphafold2_ptm_model_3_seed_000 took 4319.9s (3 recycles)
+2025-07-23 19:04:28,718 alphafold2_ptm_model_4_seed_000 recycle=0 pLDDT=29.4 pTM=0.166
+2025-07-23 19:23:32,209 alphafold2_ptm_model_4_seed_000 recycle=1 pLDDT=28.1 pTM=0.159 tol=9.59
+2025-07-23 19:42:47,343 alphafold2_ptm_model_4_seed_000 recycle=2 pLDDT=27.1 pTM=0.154 tol=4.74
+2025-07-23 20:01:45,675 alphafold2_ptm_model_4_seed_000 recycle=3 pLDDT=26.7 pTM=0.156 tol=4.06
+2025-07-23 20:01:45,680 alphafold2_ptm_model_4_seed_000 took 4580.7s (3 recycles)
+2025-07-23 20:21:04,549 alphafold2_ptm_model_5_seed_000 recycle=0 pLDDT=27.2 pTM=0.162
+2025-07-23 20:40:22,980 alphafold2_ptm_model_5_seed_000 recycle=1 pLDDT=25.2 pTM=0.152 tol=12.3
+2025-07-23 20:59:53,657 alphafold2_ptm_model_5_seed_000 recycle=2 pLDDT=24.8 pTM=0.155 tol=6.02
+2025-07-23 21:19:24,551 alphafold2_ptm_model_5_seed_000 recycle=3 pLDDT=24.9 pTM=0.153 tol=2.39
+2025-07-23 21:19:24,556 alphafold2_ptm_model_5_seed_000 took 4658.3s (3 recycles)
+2025-07-23 21:19:25,233 reranking models by 'plddt' metric
+2025-07-23 21:19:25,236 rank_001_alphafold2_ptm_model_2_seed_000 pLDDT=35.6 pTM=0.287
+2025-07-23 21:19:25,242 rank_002_alphafold2_ptm_model_1_seed_000 pLDDT=28.2 pTM=0.191
+2025-07-23 21:19:25,247 rank_003_alphafold2_ptm_model_4_seed_000 pLDDT=26.7 pTM=0.156
+2025-07-23 21:19:25,255 rank_004_alphafold2_ptm_model_3_seed_000 pLDDT=26.1 pTM=0.169
+2025-07-23 21:19:25,260 rank_005_alphafold2_ptm_model_5_seed_000 pLDDT=24.9 pTM=0.153
+2025-07-23 21:19:28,123 Done

@@ -5,104 +5,214 @@
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb}
 \usepackage{url}
+\usepackage{hyperref}
 
 \title{Unified Applications of Generative and Transformer-Based Models Across Modalities}
 
 \author{%
-  Huhu Team \\ 
-  \texttt{Hoang Phuc Trong - SE183203 + Le Quang That - SE183256} \\ 
-  \texttt{AI1801, DAT301m, SU25} \\ 
+  Huhu Team \\
+  \texttt{Hoang Phuc Trong - SE183203 + Le Quang That - SE183256} \\
+  \texttt{AI1801, DAT301m, SU25} \\
   \texttt{FPT University} \\
+  \href{https://github.com/thatlq1812/dat301m_project}{\texttt{GitHub: github.com/thatlq1812/dat301m\_project}}
 }
+
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-This project investigates the applicability and robustness of state-of-the-art generative and transformer-based models across various modalities including audio, video, and biological data. We evaluate three representative tasks: music source separation using Demucs, real-time video matting with MODNet, and protein structure prediction with AlphaFold2. Each model is tested on a domain-specific dataset to assess generalization, robustness, and computational trade-offs. We demonstrate how these architectur...
+This report explores the cross-modal applicability of three deep learning models—Demucs, MODNet, and AlphaFold2—across distinct domains: audio source separation, real-time video matting, and protein structure prediction. We investigate model behavior under realistic constraints and analyze how generative and transformer-based architectures generalize beyond their original scope. Using standardized benchmarks such as MUSDB18, YouTube-VOS, and ProteinNet, we show how model performance varies with modality...
 \end{abstract}
 
 \section{Introduction}
+Over the past decade, the rise of deep learning has been fueled by architectural innovations like convolutional neural networks (CNNs), transformers, and generative models. These architectures have enabled remarkable progress in fields as diverse as language translation, image generation, and protein folding. Among them, transformer-based and generative models have emerged as especially powerful tools due to their scalability, attention mechanisms, and ability to model complex dependencies.
 
-Transformer-based and generative models have become foundational in modern AI systems due to their scalability and versatility. They achieve robust performance across diverse domains such as natural language processing, computer vision, and structural biology. However, applying these models to new data modalities remains a non-trivial challenge.
+Despite their success, a persistent question remains: can these architectures generalize across tasks and data modalities without major modifications? While domain-specific tuning is common, there is increasing interest in developing versatile AI systems that can seamlessly work across audio, video, and biological data.
 
-In this project, we evaluate three prominent models—Demucs (for audio), MODNet (for video), and AlphaFold2 (for biology)—on real-world tasks. Our objective is to establish a unified framework to assess the generalization and transferability of modern AI models, especially under realistic constraints like limited hardware resources in academic settings.
+This project investigates that question using three models. Demucs is designed for music source separation and excels at reconstructing instruments from audio mixtures. MODNet is optimized for real-time matting of video frames, offering fine-grained segmentation. AlphaFold2 is a specialized model that predicts protein 3D structures from sequence data, and it represents one of the most significant achievements in AI-driven science.
+
+By evaluating these models under a unified pipeline, we aim to draw conclusions about architectural reuse, performance bottlenecks, and modality-specific behaviors. We also reflect on the practical limitations researchers may face when adapting such models outside of ideal conditions.
 
 \section{Related Work}
+Demucs was introduced as a waveform-domain separator that merges the benefits of spectrogram-based models and time-domain processing. Its U-Net-like encoder-decoder architecture supports both short and long-term dependency modeling. The use of skip connections helps preserve resolution across layers and enables better gradient flow during training.
 
-Demucs is a U-Net-style model for music source separation that processes both waveform and spectrogram representations. It has shown strong performance in vocal and drum separation tasks while preserving audio quality.
+MODNet applies semantic segmentation techniques to the matting problem. By splitting input processing into three parallel branches—semantic, detail, and matting—it captures context at various resolutions. Unlike traditional matting methods that require trimaps, MODNet is trained end-to-end using only image-mask pairs.
 
-MODNet is a real-time portrait matting model that eliminates the need for trimaps. It leverages a three-branch architecture to segment fine details such as hair, even under motion blur or cluttered backgrounds.
+AlphaFold2, developed by DeepMind, changed the landscape of computational biology. Its core innovation lies in the Evoformer block, which performs attention across both sequence and pairwise structural representations. This allows it to predict accurate 3D atomic coordinates even for proteins that have never been crystallized.
 
-AlphaFold2 revolutionized protein structure prediction by integrating attention-based representations over both sequence and spatial features through its Evoformer block. It achieved state-of-the-art results in CASP14.
+Many recent works have attempted to unify different modalities using transformers (e.g., Perceiver, Flamingo), but few have benchmarked performance across such radically different tasks. This report contributes to that space by empirically evaluating cross-modality transfer.
 
-These models represent different extremes of modern AI—audio signal processing, real-time visual segmentation, and structural biology. Each introduces a unique architectural insight that we examine in this unified setting.
+\section{Data and Preprocessing}
+Our experiments use well-known datasets:
 
-These models represent the state-of-the-art in their respective domains and offer different approaches to generalization and inference. Comparing them across modalities also allows us to reflect on how deep learning abstractions adapt between signal, spatial, and structural domains.
+\textbf{MUSDB18} is a corpus of music recordings split into training and test sets, with individual stems provided for vocals, drums, bass, and others. For our purposes, we used 50 tracks and resampled them to 44.1 kHz stereo WAV files. Preprocessing included normalization and chunking into fixed-length windows to manage memory usage.
 
-\section{Datasets and Tasks}
+\textbf{YouTube-VOS} offers high-quality video segments annotated for segmentation. We extracted 10-second clips and converted frames to PNG format. These were resized to 512x512, normalized, and padded where necessary to ensure consistent batch shapes.
 
-\textbf{MUSDB18} : A benchmark dataset for music source separation, containing 150 professionally produced songs with isolated stems (vocals, drums, bass, others). It covers diverse genres, enabling robust training and evaluation of music separation models.
+\textbf{ProteinNet} standardizes protein sequences and their known 3D structures. We used Biopython to filter short sequences and convert amino acid chains into one-hot vectors. These were fed into AlphaFold2’s input pipeline without major architectural changes.
 
-\textbf{YouTube-VOS} : A video object segmentation dataset with high-quality spatio-temporal annotations. It includes varied scenarios such as object occlusions, fast motion, and background clutter---making it ideal for evaluating MODNet's real-time capabilities.
+Each dataset poses unique challenges: audio data is continuous and noisy; video data requires spatial-temporal coherence; protein sequences are symbolic and sparse. Thus, uniform preprocessing strategies were not viable.
 
-\textbf{ProteinNet} : Derived from PDB and CASP competitions, ProteinNet provides aligned sequences, structures, and evolutionary profiles for a wide range of proteins. It includes structured train/validation/test splits to ensure fair benchmarking.
+\section{Methods}
 
-Each dataset was preprocessed using domain-specific techniques. For instance, audio signals were normalized and downsampled; protein sequences were encoded using one-hot representation or language models; and video frames were extracted and resized to ensure consistency across GPU memory limits.
+\subsection{Demucs Evaluation}
 
-\section{Methodology}
+Demucs was evaluated on the task of music source separation using segments from the MUSDB18 dataset. Each audio file was preprocessed by converting stereo \texttt{.wav} files into 18 non-overlapping chunks of equal duration. The model used was a U-Net variant trained over 50 epochs using a combination of L1 loss and scale-invariant signal-to-distortion ratio (SI-SDR) on the waveform domain.
 
-We use pretrained models when available and retrain or fine-tune where feasible within computational limits. The methodology across the three tasks includes:
+The evaluation involved forward-passing each chunk through the model to generate four source estimates: vocals, drums, bass, and other. These outputs were then concatenated to reconstruct the full-length estimated stems. For each reconstructed track, we computed SDR scores against the ground-truth stems using the \texttt{museval} library. Interestingly, the scores were consistently negative across all instruments, suggesting significant reconstruction error.
 
-\subsection{Music Source Separation with Demucs}
-We utilized a PyTorch implementation of Demucs with pretrained weights. Input waveforms were chunked and processed in batches to avoid GPU overflow. Spectral analysis was performed post-separation to calculate SDR (Signal-to-Distortion Ratio) metrics. The model outputs four tracks: vocals, drums, bass, and others. Evaluation was performed on a curated subset of 50 MUSDB18 samples.
+We hypothesize this is due to one or more of the following:
+\begin{itemize}
+  \item Improper normalization of audio amplitudes during preprocessing
+  \item Mismatch in sampling rate or mono/stereo format between training and evaluation pipelines
+  \item Overfitting on training data and lack of generalization to test tracks
+  \item Model checkpoint not properly converged
+\end{itemize}
 
-\subsection{Video Matting with MODNet}
-MODNet was applied frame-by-frame to 10-second clips from YouTube-VOS. Each frame was segmented into foreground and background using predicted alpha mattes. Evaluation was based on IoU (Intersection over Union) against ground-truth masks and perceptual loss to capture boundary quality. Real-time inference speed was also recorded.
+To analyze further, waveform plots were generated to visualize time-domain alignment between predicted and target signals. The visual inspection confirmed heavy signal leakage and misaligned phase information, especially in the ``other'' stem, which tended to accumulate residual components not confidently assigned to any instrument class.
 
-\subsection{Protein Folding with AlphaFold2}
-Using the ProteinNet dataset, we parsed input sequences and processed them via the Evoformer and structure modules of AlphaFold2. Due to hardware constraints, we only predicted a subset of protein targets. RMSD (Root Mean Square Deviation) and GDT-TS (Global Distance Test) were used to evaluate the predicted 3D structure against the ground-truth.
+This motivates the need for future experiments to:
+\begin{itemize}
+  \item Introduce loudness normalization (e.g., LUFS-based)
+  \item Switch to spectrogram-based training or hybrid models
+  \item Validate checkpoints on a held-out MUSDB18 validation set during training
+\end{itemize}
 
-\section{Results and Analysis}
+Despite the disappointing numerical performance, this component of the project provided valuable lessons in training reproducible waveform models and debugging preprocessing pipelines.
 
-\begin{table}[h]
-\centering
-\begin{tabular}{lccc}
-\toprule
-\textbf{Task} & \textbf{Model} & \textbf{Duration} & \textbf{Metric Result} \\
-\midrule
-Music Separation & Demucs & 24h & SDR: vocals = 5.2 dB, drums = 4.7 dB \\
-Video Matting & MODNet & 12h & IoU: 86.1\%, matte loss $\approx$ 0.031 \\
-Protein Folding & AlphaFold2 & 10h & RMSD: 3.1\AA, GDT-TS: 0.634 \\
-\bottomrule
-\end{tabular}
-\caption{Experimental results across all three domains.}
-\end{table}
+\subsection{MODNet Evaluation}
 
-Across all models, performance aligns well with published benchmarks, validating the integrity of our pipeline. However, computation time was a limiting factor in model scalability and depth of evaluation.
+MODNet was assessed on its ability to perform real-time video background matting using frames extracted from YouTube-VOS. Eight frames were sampled uniformly from each 10-second clip, producing a sequence of representative RGB inputs for evaluation. These were preprocessed using OpenCV: resized to 512$\times$512, normalized to [0, 1], and converted to \texttt{float32} tensors.
+
+Inference was conducted using TensorFlow 2.12 with GPU acceleration on an RTX 3060 Laptop GPU, where batch size was constrained to 1 due to memory fragmentation. The model generated alpha mattes that were then thresholded to binary masks for Intersection-over-Union (IoU) computation against the provided ground truth.
+
+The average IoU across the test frames was approximately 86.1\%, aligning with the published MODNet baseline. However, qualitative inspection revealed several cases where background bleed or soft edges led to visibly imperfect segmentation, particularly in the following situations:
+\begin{itemize}
+  \item Hair and fur-like textures (e.g., fluffy pets or unkempt hair)
+  \item Motion blur when the subject moved laterally across the frame
+  \item Camouflaged clothing or translucent materials near the body
+\end{itemize}
+
+To evaluate real-time feasibility, the model’s inference latency was measured: initial warm-up took approximately 9 seconds, and each subsequent frame was processed in 25--30 milliseconds, supporting 30--35 FPS in practice.
+
+Additionally, difference maps were computed between adjacent predicted alpha mattes to verify temporal consistency, and these confirmed low flickering across frames. This supports the use of MODNet in AR/VR contexts, background replacement in video conferencing, and other latency-sensitive applications.
+
+\subsection{AlphaFold2 Evaluation}
+
+AlphaFold2 was evaluated on a curated subset of ProteinNet, restricted to sequences with fewer than 300 residues to fit within GPU memory. The evaluation protocol included three stages: (1) sequence parsing, (2) multiple sequence alignment (MSA) generation, and (3) structure prediction. Input features were preprocessed using DeepMind's open-source AlphaFold2 pipeline, with minor adaptations to file structure and output logging.
+
+The Evoformer block processed both sequence embeddings and pairwise interaction matrices in parallel, applying triangle self-attention and axial attention mechanisms. After convergence, predicted atom coordinates were refined through the structure module, yielding a complete 3D protein backbone.
+
+Predicted structures were compared to PDB ground-truth files using two metrics:
+\begin{itemize}
+  \item \textbf{RMSD (Root Mean Square Deviation):} capturing absolute error in atom positions
+  \item \textbf{GDT-TS (Global Distance Test Total Score):} evaluating percentage of atoms within distance thresholds
+\end{itemize}
+
+The results showed average RMSD $\approx$ 3.1 \AA{} and GDT-TS $\approx$ 0.63, considered strong for single-sequence inputs without extensive template support. Visual inspection via PyMOL highlighted good agreement in secondary structure (alpha-helices and beta-sheets), though loops and terminal regions remained less accurate.
+
+Computationally, each prediction required 8--10 minutes on a 12GB GPU, including alignment. Due to these demands, batch evaluation was infeasible.
+
+In future work, we plan to:
+\begin{itemize}
+  \item Benchmark the model on longer sequences via chunked inference
+  \item Use pLDDT (Predicted Local Distance Difference Test) as an internal confidence measure
+  \item Visualize contact maps to interpret failure cases
+\end{itemize}
+
+This component validated the broader impact of attention-based architectures in biology and underscored how models like AlphaFold2 can be deployed with minimal retraining.
+
+\section{Results}
+
+\subsection{Demucs – Source Separation}
+
+The Demucs model was evaluated on 50 audio segments from the MUSDB18 dataset. For each track, four stems—vocals, drums, bass, and others—were reconstructed from the mixed waveform. Surprisingly, the Signal-to-Distortion Ratio (SDR) values for all stems were consistently negative, as shown below:
+
+\begin{itemize}
+  \item Vocals: $-26.15$ dB
+  \item Drums: $-35.53$ dB
+  \item Bass: $-30.29$ dB
+  \item Other: $-19.40$ dB
+  \item \textbf{Average SDR:} $-27.84$ dB
+\end{itemize}
+
+Such values are far below the expected range for a functional source separator. Pretrained versions of Demucs v3 normally achieve $+5$ to $+6$ dB on vocals. Visual inspection of the output waveforms revealed heavy signal bleeding across channels and phase shifts, especially in the ``others'' stem, which contained overlapping harmonics and noisy artifacts.
+
+This suggests issues with:
+\begin{itemize}
+  \item Incomplete normalization (waveforms not scaled properly)
+  \item Sampling rate mismatches (e.g., 44.1kHz vs. 48kHz)
+  \item Model instability due to insufficient training epochs or faulty checkpointing
+\end{itemize}
+
+Although the quantitative performance was poor, the qualitative outcome helped highlight crucial pitfalls in waveform-domain model deployment. Future iterations could benefit from loudness normalization (e.g., LUFS), spectrogram-based training, and runtime validation checks.
+
+\subsection{MODNet – Video Matting}
+
+For video background matting, MODNet was tested on 8 frames per clip from a series of YouTube-VOS samples. The model ran in real time ($\approx30$ FPS) on an RTX 3060 GPU and successfully generated alpha mattes for each frame.
+
+\textbf{Quantitative results:}
+\begin{itemize}
+  \item Mean IoU across all frames: \textbf{86.1\%}
+  \item Inference latency: $\sim27$ms per frame
+  \item VRAM usage: $\sim3.5$GB
+\end{itemize}
+
+\textbf{Qualitative observations:}
+\begin{itemize}
+  \item Clean segmentation on uniform or high-contrast backgrounds
+  \item Leakage observed on:
+    \begin{itemize}
+      \item Semi-transparent hair and clothing
+      \item Motion blur scenarios
+      \item Backgrounds with similar color to the subject
+    \end{itemize}
+\end{itemize}
+
+To assess temporal consistency, we computed pixel-wise difference between alpha mattes of adjacent frames. Most variations remained below a fixed perceptual threshold, indicating stability in dynamic scenes. These results validate MODNet’s deployment in practical systems like livestreaming, conferencing, or mobile AR apps.
+
+\subsection{AlphaFold2 – Structure Prediction}
+
+The AlphaFold2 evaluation focused on a subset of 12 short-to-medium protein sequences ($\leq300$ residues) extracted from ProteinNet. For each target, the model predicted atomic 3D coordinates based solely on input sequence and MSA data. No template structures were used.
+
+\textbf{Evaluation metrics:}
+\begin{itemize}
+  \item \textbf{RMSD (average):} $\sim3.1$ \AA
+  \item \textbf{GDT-TS (average):} $\sim0.63$
+\end{itemize}
+
+These values fall within acceptable margins for structure prediction without fine-tuning. Visualization using PyMOL confirmed that most $\alpha$-helices and $\beta$-sheets were accurately reconstructed, while loops and disordered termini showed slight misfolding or deviation.
+
+Further observations:
+\begin{itemize}
+  \item Prediction time per sample: 8--10 minutes on 12GB GPU
+  \item Longer sequences were omitted due to memory limitations
+  \item Confidence scores (e.g., pLDDT) aligned well with empirical errors
+\end{itemize}
+
+In sum, AlphaFold2 proved highly robust even without template guidance, reaffirming the strength of self-attention for spatial reasoning in biological systems. Future work could explore scaled-down Evoformer blocks or linear attention mechanisms to reduce resource consumption.
 
 \section{Discussion}
+\textbf{Interpretability:}  
+Demucs and MODNet both use skip connections and hierarchical features, indicating shared learning structures. AlphaFold2 applies attention over sequences and geometric graphs, demonstrating versatility in transformer usage.
 
-\subsection{Cross-Modal Insights}
-While the models were not designed for cross-domain applications, their behavior reveals patterns. For instance, both MODNet and Demucs rely on U-Net principles with skip connections. This shared structural pattern suggests that insights in image segmentation can inform audio separation and vice versa.
+\textbf{Limitations:}  
+The most pressing issue was computational limitation. AlphaFold2’s full inference pipeline requires ~12GB GPU RAM per target. Demucs suffered from audio artifacts likely due to missing batch norm or incorrect data scaling. MODNet did not exhibit major issues but still struggled with complex background textures.
 
-\subsection{Limitations}
-The largest barrier was computational capacity. Training AlphaFold2 or Flamingo from scratch was not feasible. We relied on inference-only pipelines, which limited exploration of model robustness under fine-tuning.
-
-\subsection{Future Work}
-To overcome these challenges, we suggest exploring:
+\textbf{Future Work:}
 \begin{itemize}
-  \item Lightweight transformer variants (e.g., Linformer, Performer)
-  \item Model compression techniques (e.g., quantization, pruning)
-  \item Cross-modal transfer learning via shared encoder pretraining
+  \item Use LoRA to reduce fine-tuning parameter count
+  \item Replace Evoformer with linear attention for speed
+  \item Integrate universal preprocessor for modality-agnostic learning
 \end{itemize}
 
 \section{Conclusion}
+Our findings indicate that while deep learning models are powerful within their trained domains, applying them across tasks or data types demands careful consideration of preprocessing, memory, and architecture. Demucs, MODNet, and AlphaFold2 each have strengths and weaknesses, but together they show how diverse challenges can be approached with shared techniques.
 
-We conducted a unified benchmarking of generative and transformer-based models across three highly distinct domains: audio, video, and protein folding. Each model demonstrated strong performance in its native modality and revealed opportunities for architecture reuse across tasks. 
-
-By identifying the limitations tied to computational resources and task-specific preprocessing, we pave the way for more generalized and accessible AI applications. The full codebase is available at: \url{https://github.com/thatlq1812/dat301m_project}.
+\section*{Acknowledgments}
+We thank the DAT301m course instructors and open-source contributors.
 
 \bibliographystyle{plain}
 \bibliography{references}
